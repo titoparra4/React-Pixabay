@@ -13,7 +13,12 @@ class Resultado extends Component {
 				<div id="resultado" className="col-12 p-5 row">
 					{this.props.imagenes.map((imagen) => <Imagen key={imagen.id} imagen={imagen} />)}
 				</div>
-				<Navegacion paginaAnterior={this.props.paginaAnterior} paginaSiguiente={this.props.paginaSiguiente} />
+				<Navegacion
+					paginaAnterior={this.props.paginaAnterior}
+					paginaSiguiente={this.props.paginaSiguiente}
+					pagina={this.props.pagina}
+					totalPaginas={this.props.totalPaginas}
+				/>
 			</React.Fragment>
 		);
 	};
