@@ -3,11 +3,17 @@ import Buscador from './componentes/Buscador';
 
 class App extends Component {
 	state = {
-		termino: ''
+		termino: '',
+		imagenes: []
 	};
 
 	consultarAPI = () => {
-		console.log('From API');
+		const termino = this.state.termino;
+		const url = `https://pixabay.com/api/?key=12267502-fa0a8ac33d4005d9f97a88c08&q=${termino}&per_page=100`;
+
+		fetch(url)
+			.then((respuesta) => respuesta.json())
+			.then((resultado) => this.setState({ imagenes: resultado.hits }));
 	};
 
 	datosBusqueda = (termino) => {
